@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { MainPage } from "./pages/MainPage/MainPage";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import { context } from "@reatom/react";
+import { createStore } from "@reatom/core";
+import { Theme, presetGpnDefault } from "@consta/uikit/Theme";
+import { App } from "./containers/App/App";
+
+function Root() {
+  const store = createStore({});
+  return (
+    <App>
+      <context.Provider value={store}>
+        <Theme preset={presetGpnDefault}>
+          <MainPage />
+        </Theme>
+      </context.Provider>
+    </App>
+  );
+}
+
+ReactDOM.render(<Root />, document.getElementById("root"));

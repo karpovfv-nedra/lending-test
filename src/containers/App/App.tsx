@@ -5,7 +5,7 @@ import { cn } from "../../utils/bem";
 import { useAtom } from "@reatom/react";
 import { themeAtom, mapTheme } from "../../modules/theme/theme";
 
-import { cnTheme } from "@consta/uikit/Theme";
+import { cnTheme, Theme } from "@consta/uikit/Theme";
 
 const cnApp = cn("App");
 
@@ -21,5 +21,9 @@ export const App: React.FC = ({ children }) => {
     document.querySelector("html")?.setAttribute("class", cnTheme(mods));
   }, [theme]);
 
-  return <div className={cnApp()}>{children}</div>;
+  return (
+    <Theme className={cnApp()} preset={mapTheme[theme]}>
+      {children}
+    </Theme>
+  );
 };

@@ -101,8 +101,12 @@ img {
   outline: none;
 }
 
+html {
+  background-color: var(--color-bg-default);
+}
+
 .Test--App {
   --seciton-width: 600px;
-
-  background-color: var(--color-bg-default);
+  --seciton-spase: var(--space-5xl);
+  padding: 0 var(--space-l);
 }

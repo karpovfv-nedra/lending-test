@@ -1,0 +1,27 @@
+.Test--MainPageOrderTable {
+  max-width: var(--seciton-width);
+  margin: 0 auto var(--seciton-spase) auto;
+
+  &-Title {
+    margin-bottom: var(--space-3xl);
+  }
+
+  &-InputLabel {
+    margin-bottom: var(--space-xs);
+  }
+
+  &-Wrapper {
+    background: var(--color-bg-default);
+    box-shadow: 0px 73px 80px rgba(0, 0, 0, 0.07),
+      0px 26.6462px 29.2013px rgba(0, 0, 0, 0.05),
+      0px 10px 14.1767px rgba(0, 0, 0, 0.05),
+      0px 2.34px 6.94968px rgba(0, 0, 0, 0.05),
+      0px 0px 2.74791px rgba(0, 0, 0, 0.04);
+  }
+
+  &-ButtonWrapper {
+    display: flex;
+    padding: var(--space-l);
+    flex-direction: row-reverse;
+  }
+}

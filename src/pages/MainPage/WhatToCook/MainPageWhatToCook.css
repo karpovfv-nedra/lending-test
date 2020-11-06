@@ -1,12 +1,8 @@
-.Test--MainPageIWantToEat {
+.Test--MainPageWhatToCook {
   max-width: var(--seciton-width);
-  margin: var(--seciton-spase) auto;
+  margin: 0 auto;
 
   &-Title {
-    margin-bottom: var(--space-m);
-  }
-
-  &-SubTitle {
     margin-bottom: var(--space-3xl);
   }
 
@@ -14,7 +10,12 @@
     margin-bottom: var(--space-xs);
   }
 
-  &-Input {
+  &-InputWrapper {
     width: 400px;
+    margin-bottom: var(--space-m);
+  }
+
+  &-Switch {
+    margin-bottom: var(--space-2xl);
   }
 }

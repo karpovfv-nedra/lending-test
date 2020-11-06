@@ -1,0 +1,12 @@
+.Test--MainPageMenu {
+  max-width: var(--seciton-width);
+  margin: 0 auto var(--seciton-spase) auto;
+
+  &-Title {
+    margin-bottom: var(--space-3xl);
+  }
+
+  &-SubTitle {
+    margin-bottom: var(--space-xl);
+  }
+}

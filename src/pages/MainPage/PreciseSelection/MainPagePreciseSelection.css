@@ -1,0 +1,22 @@
+.Test--MainPagePreciseSelection {
+  max-width: var(--seciton-width);
+  margin: 0 auto;
+
+  &-InputLabel {
+    margin-bottom: var(--space-xs);
+  }
+
+  &-InputWrapper {
+    width: 400px;
+    margin-bottom: var(--space-m);
+  }
+
+  &-Badge {
+    margin-right: var(--space-xs);
+    margin-bottom: var(--space-xs);
+  }
+
+  &-BadgesWrapper {
+    margin-bottom: var(--space-xs);
+  }
+}

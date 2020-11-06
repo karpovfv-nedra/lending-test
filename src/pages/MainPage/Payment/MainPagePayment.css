@@ -1,0 +1,29 @@
+.Test--MainPagePayment {
+  max-width: var(--seciton-width);
+  margin: 0 auto var(--seciton-spase) auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &-Title {
+    margin-bottom: var(--space-3xl);
+  }
+
+  &-ChoiceGroupWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  &-OrderPriceWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: var(--space-m);
+    margin-bottom: var(--space-2xl);
+  }
+
+  &-ButtonWrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,15 @@
+.Test--MainPageAdditionalIngredients {
+  max-width: var(--seciton-width);
+  margin: 0 auto;
+
+  &-InputLabel {
+    margin-bottom: var(--space-xs);
+  }
+
+  &-InputWrapper {
+    width: 400px;
+  }
+  &-Input {
+    margin-bottom: var(--space-xs);
+  }
+}

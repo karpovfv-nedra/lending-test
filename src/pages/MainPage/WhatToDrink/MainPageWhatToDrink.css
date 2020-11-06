@@ -1,0 +1,26 @@
+.Test--MainPageWhatToDrink {
+  max-width: var(--seciton-width);
+  margin: 0 auto var(--seciton-spase) auto;
+
+  &-Title {
+    margin-bottom: var(--space-3xl);
+  }
+
+  &-InputLabel {
+    margin-bottom: var(--space-xs);
+  }
+
+  &-InputWrapper {
+    width: 400px;
+  }
+
+  &-Tabs {
+    margin-bottom: var(--space-l);
+  }
+
+  &-List {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: var(--space-xs);
+  }
+}

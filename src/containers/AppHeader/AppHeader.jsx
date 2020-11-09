@@ -12,6 +12,7 @@ import { toogleThemeAction } from "../../modules/theme/theme";
 import { IconSun } from "@consta/uikit/IconSun";
 import { IconHamburger } from "@consta/uikit/IconHamburger";
 import { cn } from "../../utils/bem";
+import { Text } from "@consta/uikit/Text";
 
 const cnAppHeader = cn("AppHeader");
 
@@ -22,18 +23,14 @@ export const AppHeader = () => {
     <Header
       className={cnAppHeader()}
       leftSide={
-        <>
-          <HeaderModule>
-            <HeaderButton iconLeft={IconHamburger} />
-          </HeaderModule>
-        </>
+        <HeaderModule>
+          <Text>Хочу есть</Text>
+        </HeaderModule>
       }
       rightSide={
-        <>
-          <HeaderModule>
-            <HeaderButton iconLeft={IconSun} onClick={toogleTheme} />
-          </HeaderModule>
-        </>
+        <HeaderModule>
+          <HeaderButton iconLeft={IconSun} onClick={toogleTheme} />
+        </HeaderModule>
       }
     />
   );

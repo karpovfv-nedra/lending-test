@@ -8,6 +8,8 @@ import { useAtom, useAction } from "@reatom/react";
 import {
   tableDataAtom,
   generateLieCoefficientAction,
+  lieCoefficientAtom,
+  defaultlieCoefficient,
 } from "../../../modules/app/app";
 import { Button } from "@consta/uikit/Button";
 
@@ -55,6 +57,7 @@ const columns: TableColumn<{
 
 export const MainPageOrderTable: React.FC = () => {
   const tableData = useAtom(tableDataAtom);
+  const lieCoefficient = useAtom(lieCoefficientAtom);
   const handleButton = useAction(generateLieCoefficientAction);
 
   return (
@@ -64,19 +67,21 @@ export const MainPageOrderTable: React.FC = () => {
       </Text>
       <div className={cnMainPageOrderTable("Wrapper")}>
         <Table
-          key={cnMainPageOrderTable("Table")}
+          className={cnMainPageOrderTable("Table")}
           columns={columns}
           rows={tableData}
           zebraStriped="odd"
           emptyRowsPlaceholder={<Text size="s">Ничего не выбранно</Text>}
         />
-        <div className={cnMainPageOrderTable("ButtonWrapper")}>
-          <Button
-            label="А теперь по-честному"
-            view="secondary"
-            onClick={handleButton}
-          />
-        </div>
+        {lieCoefficient === defaultlieCoefficient && tableData.length > 0 && (
+          <div className={cnMainPageOrderTable("ButtonWrapper")}>
+            <Button
+              label="А теперь по-честному"
+              view="secondary"
+              onClick={handleButton}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

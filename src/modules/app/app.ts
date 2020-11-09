@@ -158,6 +158,7 @@ export const userIngredientsAtom = declareAtom<AdditionalIngredient[] | null>(
   null,
   (on) => [
     on(addUserIngredientsAction, (state, label) => [
+      ...(state ? state : []),
       {
         label,
         category: ["user"],
@@ -168,7 +169,6 @@ export const userIngredientsAtom = declareAtom<AdditionalIngredient[] | null>(
         carbohydrates: 0,
         kilocalories: 0,
       },
-      ...(state ? state : []),
     ]),
   ]
 );
@@ -224,22 +224,25 @@ export const drinkValueAtom = declareAtom<Product[] | null>(null, (on) => [
 
 const idTableDataAtom = cn("tableDataAtom");
 
+export const defaultlieCoefficient = 1;
 export const generateLieCoefficientAction = declareAction();
-export const lieCoefficientAtom = declareAtom<number>(1, (on) =>
-  on(generateLieCoefficientAction, (state) => {
-    let coefficient = 1;
+export const lieCoefficientAtom = declareAtom<number>(
+  defaultlieCoefficient,
+  (on) =>
+    on(generateLieCoefficientAction, (state) => {
+      let coefficient = 1;
 
-    function generate() {
-      coefficient = Math.floor(Math.random() * Math.floor(50)) / 100 + 1;
-      if (state === coefficient) {
-        generate();
+      function generate() {
+        coefficient = Math.floor(Math.random() * Math.floor(50)) / 100 + 1;
+        if (state === coefficient) {
+          generate();
+        }
       }
-    }
 
-    generate();
+      generate();
 
-    return coefficient;
-  })
+      return coefficient;
+    })
 );
 
 export const tableDataAtom = map(
@@ -262,11 +265,11 @@ export const tableDataAtom = map(
       kilocalories: number;
     }[] = [];
 
-    function addCoefficient(number: number) {
+    function addCoefficient(number: number = 0) {
       return Math.floor(number * lieCoefficient);
     }
 
-    function double(number: number) {
+    function double(number: number = 0) {
       return doublePortion ? number * 2 : number;
     }
 
@@ -322,6 +325,8 @@ export const orderPriceAtom = map(
   }),
   ({ currency, tableData }) => {
     let sum: number = 0;
+
+    console.log(tableData);
 
     tableData.forEach((item) => {
       sum += item.cost;

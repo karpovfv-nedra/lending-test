@@ -55,6 +55,7 @@ export const MainPagePreciseSelection: React.FC = () => {
                 className={cnMainPagePreciseSelection("Badge")}
                 label={badge.name}
                 status={badge.status}
+                form="round"
               />
             );
           })}

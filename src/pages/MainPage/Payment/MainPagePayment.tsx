@@ -38,14 +38,14 @@ export const MainPagePayment: React.FC = () => {
       <Text className={cnMainPagePayment("SumLabel")} size="xl" align="center">
         Сумма вашего заказа:
       </Text>
-      <div className={cnMainPagePayment("OrderPriceWrapper")}>
-        <Text size="5xl" align="right" weight="bold">
-          {orderPrice}
-        </Text>
-        <Text size="5xl" align="left" weight="bold">
-          {String.fromCodePoint(currencyValue.image)}
-        </Text>
-      </div>
+      <Text
+        className={cnMainPagePayment("OrderPrice")}
+        size="5xl"
+        align="center"
+        weight="bold"
+      >
+        {orderPrice} {String.fromCodePoint(currencyValue.image)}
+      </Text>
       <div className={cnMainPagePayment("ButtonWrapper")}>
         <Button label="Начать готовить" iconRight={IconForward} size="l" />
       </div>

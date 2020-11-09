@@ -63,12 +63,12 @@ export const MainPageAdditionalIngredients: React.FC = () => {
           value={additionalIngredientsValue}
           options={additionalIngredients}
           getOptionLabel={(item) => item.label}
-          onCreate={hadleCreate}
+          // onCreate={hadleCreate}
         />
-        <Text size="s" fontStyle="italic" view="secondary">
+        {/* <Text size="s" fontStyle="italic" view="secondary">
           Можете добавить свой вариант. Если мы найдём это на кухне, мы не
           пожалеем и добавим.
-        </Text>
+        </Text> */}
       </div>
     </div>
   );

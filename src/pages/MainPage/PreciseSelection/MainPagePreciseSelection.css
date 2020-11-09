@@ -17,6 +17,6 @@
   }
 
   &-BadgesWrapper {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-2xs);
   }
 }

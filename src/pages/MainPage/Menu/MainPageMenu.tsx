@@ -16,20 +16,24 @@ export const MainPageMenu: React.FC = () => {
         Скачайте и посмотрите наш честный прайс
       </Text>
       <Attach
+        className={cnMainPageMenu("Attach")}
         fileName="Основное меню пиццерии и воков"
         fileDescription="1,5 Mб  21.02.2019, 14:12"
         fileExtension="doc"
         as="a"
         href="/upload/logo512.png"
         target="_blank"
+        withAction
       />
       <Attach
+        className={cnMainPageMenu("Attach")}
         fileName="Основное меню пасты"
         fileDescription="1,5 Mб  21.02.2019, 14:12"
         fileExtension="pdf"
         as="a"
         href="/upload/logo512.png"
         target="_blank"
+        withAction
       />
     </div>
   );

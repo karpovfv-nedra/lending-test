@@ -6,7 +6,7 @@
   flex-direction: column;
 
   &-Title {
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
   }
 
   &-ChoiceGroupWrapper {
@@ -15,10 +15,7 @@
     margin-bottom: var(--space-3xl);
   }
 
-  &-OrderPriceWrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-gap: var(--space-m);
+  &-OrderPrice {
     margin-bottom: var(--space-2xl);
   }
 

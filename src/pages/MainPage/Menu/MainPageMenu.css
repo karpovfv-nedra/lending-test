@@ -3,10 +3,14 @@
   margin: 0 auto var(--seciton-spase) auto;
 
   &-Title {
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
   }
 
   &-SubTitle {
     margin-bottom: var(--space-xl);
+  }
+
+  &-Attach {
+    max-width: 400px;
   }
 }

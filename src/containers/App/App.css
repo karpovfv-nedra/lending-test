@@ -106,7 +106,7 @@ html {
 }
 
 .Test--App {
-  --seciton-width: 600px;
-  --seciton-spase: var(--space-5xl);
+  --section-width: 600px;
+  --section-spase: var(--space-5xl);
   padding: 0 var(--space-l);
 }

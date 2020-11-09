@@ -152,6 +152,11 @@ export const produrtCookValueAtom = declareAtom<Product | null>(null, (on) => [
   on(setCatecoryCookAction, () => null),
 ]);
 
+export const wantItSharplyAction = declareAction();
+export const wantItSharplyValueAtom = declareAtom<boolean>(false, (on) =>
+  on(wantItSharplyAction, (state) => !state)
+);
+
 export const addUserIngredientsAction = declareAction<string>();
 
 export const userIngredientsAtom = declareAtom<AdditionalIngredient[] | null>(

@@ -1,6 +1,6 @@
 .Test--MainPagePayment {
-  max-width: var(--seciton-width);
-  margin: 0 auto var(--seciton-spase) auto;
+  max-width: var(--section-width);
+  margin: 0 auto var(--section-spase) auto;
   display: flex;
   justify-content: center;
   flex-direction: column;

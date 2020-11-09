@@ -1,8 +1,8 @@
 .Test--MainPage {
   &-Contrent {
-    padding-top: var(--seciton-spase);
+    padding-top: var(--section-spase);
   }
   &-EatSection {
-    margin-bottom: var(--seciton-spase);
+    margin-bottom: var(--section-spase);
   }
 }

@@ -1,5 +1,6 @@
 .Test--MainPageWhatToCook {
-  max-width: var(--seciton-width);
+  position: relative;
+  max-width: var(--section-width);
   margin: 0 auto;
 
   &-Title {
@@ -11,11 +12,21 @@
   }
 
   &-InputWrapper {
-    width: 400px;
+    max-width: 400px;
     margin-bottom: var(--space-m);
   }
 
   &-Switch {
     margin-bottom: var(--space-2xl);
+  }
+  &-Image {
+    display: none;
+    @media (min-width: 920px) {
+      display: block;
+      position: absolute;
+      width: 200px;
+      left: -220px;
+      top: 0px;
+    }
   }
 }

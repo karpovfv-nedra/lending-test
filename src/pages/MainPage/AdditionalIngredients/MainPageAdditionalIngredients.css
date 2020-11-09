@@ -1,5 +1,5 @@
 .Test--MainPageAdditionalIngredients {
-  max-width: var(--seciton-width);
+  max-width: var(--section-width);
   margin: 0 auto;
 
   &-InputLabel {

@@ -15,6 +15,7 @@ import {
   setDoublePortionAction,
   doublePortionAtom,
 } from "../../../modules/app/app";
+import Pizza from "../../../svg/Pizza.svg";
 
 const cnMainPageWhatToCook = cn("MainPageWhatToCook");
 
@@ -64,6 +65,7 @@ export const MainPageWhatToCook: React.FC = () => {
           label="Двойная порция"
         />
       )}
+      <Pizza className={cnMainPageWhatToCook("Image")} />
     </div>
   );
 };

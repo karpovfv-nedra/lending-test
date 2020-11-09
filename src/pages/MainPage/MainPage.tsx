@@ -8,6 +8,7 @@ import { MainPageWhatToDrink } from "./WhatToDrink/MainPageWhatToDrink";
 import { MainPageOrderTable } from "./OrderTable/MainPageOrderTable";
 import { MainPageMenu } from "./Menu/MainPageMenu";
 import { MainPagePayment } from "./Payment/MainPagePayment";
+import { MainPageFooter } from "./Footer/MainPageFooter";
 
 import "./MainPage.css";
 import { cn } from "../../utils/bem";
@@ -29,6 +30,7 @@ export function MainPage() {
         <MainPageOrderTable />
         <MainPageMenu />
         <MainPagePayment />
+        <MainPageFooter />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .Test--MainPageIWantToEat {
-  max-width: var(--seciton-width);
-  margin: var(--seciton-spase) auto;
+  position: relative;
+  max-width: var(--section-width);
+  margin: var(--section-spase) auto;
 
   &-Title {
     margin-bottom: var(--space-m);
@@ -16,5 +17,16 @@
 
   &-Input {
     width: 400px;
+  }
+
+  &-Image {
+    display: none;
+    @media (min-width: 760px) {
+      display: block;
+      position: absolute;
+      width: 300px;
+      right: -120px;
+      bottom: 0;
+    }
   }
 }

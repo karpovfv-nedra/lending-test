@@ -17,6 +17,7 @@ import {
   drinkValueAtom,
   Product,
 } from "../../../modules/app/app";
+import Drinks from "../../../svg/Drinks.svg";
 
 const cnMainPageWhatToDrink = cn("MainPageWhatToDrink");
 
@@ -67,6 +68,7 @@ export const MainPageWhatToDrink: React.FC = () => {
           );
         })}
       </div>
+      <Drinks className={cnMainPageWhatToDrink("Image")} />
     </div>
   );
 };

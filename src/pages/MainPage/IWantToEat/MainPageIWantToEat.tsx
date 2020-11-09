@@ -6,6 +6,7 @@ import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
 import { useAtom, useAction } from "@reatom/react";
 import { setUserNameAction, userNameAtom } from "../../../modules/app/app";
+import BG from "../../../svg/BG.svg";
 
 const cnMainPageIWantToEat = cn("MainPageIWantToEat");
 
@@ -31,6 +32,7 @@ export const MainPageIWantToEat: React.FC = () => {
         onChange={({ value }) => setName(value)}
         value={name}
       />
+      <BG className={cnMainPageIWantToEat("Image")} />
     </div>
   );
 };

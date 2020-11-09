@@ -6,12 +6,15 @@ import { Text } from "@consta/uikit/Text";
 import { BasicSelect } from "@consta/uikit/BasicSelect";
 import { useAtom, useAction } from "@reatom/react";
 import { Badge } from "@consta/uikit/Badge";
+import { Checkbox } from "@consta/uikit/Checkbox";
 import {
   categoryCookAtom,
   produrtCookListAtom,
   setProdurtCookValueAction,
   produrtCookValueAtom,
   getBagebyId,
+  wantItSharplyAction,
+  wantItSharplyValueAtom,
 } from "../../../modules/app/app";
 
 const cnMainPagePreciseSelection = cn("MainPagePreciseSelection");
@@ -21,6 +24,8 @@ export const MainPagePreciseSelection: React.FC = () => {
   const produrtCookList = useAtom(produrtCookListAtom);
   const produrtCookValue = useAtom(produrtCookValueAtom);
   const setProdurtCookValue = useAction(setProdurtCookValueAction);
+  const wantItSharply = useAction(wantItSharplyAction);
+  const wantItSharplyValue = useAtom(wantItSharplyValueAtom);
 
   if (categoryCook === null) {
     return null;
@@ -33,16 +38,24 @@ export const MainPagePreciseSelection: React.FC = () => {
           "А какая больше по душе?"}
         {categoryCook?.id === "wok" && "А какой больше по душе?"}
       </Text>
-      <div className={cnMainPagePreciseSelection("InputWrapper")}>
-        <BasicSelect
-          id={cnMainPagePreciseSelection("Input")}
-          className={cnMainPagePreciseSelection("Input")}
+      <div className={cnMainPagePreciseSelection("Form")}>
+        <div className={cnMainPagePreciseSelection("InputWrapper")}>
+          <BasicSelect
+            id={cnMainPagePreciseSelection("Input")}
+            className={cnMainPagePreciseSelection("Input")}
+            size="l"
+            placeholder="Выберите что будете  есть"
+            options={produrtCookList}
+            getOptionLabel={(item) => item.name}
+            value={produrtCookValue}
+            onChange={setProdurtCookValue}
+          />
+        </div>
+        <Checkbox
+          onChange={wantItSharply}
+          checked={wantItSharplyValue}
+          label="Поострее хочу!"
           size="l"
-          placeholder="Выберите что будете  есть"
-          options={produrtCookList}
-          getOptionLabel={(item) => item.name}
-          value={produrtCookValue}
-          onChange={setProdurtCookValue}
         />
       </div>
       {produrtCookValue?.badge && (

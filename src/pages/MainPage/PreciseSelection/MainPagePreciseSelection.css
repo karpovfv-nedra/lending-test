@@ -1,14 +1,29 @@
 .Test--MainPagePreciseSelection {
-  max-width: var(--seciton-width);
+  position: relative;
+  max-width: var(--section-width);
   margin: 0 auto;
 
   &-InputLabel {
     margin-bottom: var(--space-xs);
   }
 
-  &-InputWrapper {
-    width: 400px;
+  &-Form {
     margin-bottom: var(--space-m);
+    @media (min-width: 650px) {
+      display: flex;
+    }
+  }
+
+  &-InputWrapper {
+    max-width: 400px;
+    height: var(--control-height-l);
+    margin-bottom: var(--space-m);
+    @media (min-width: 650px) {
+      width: 400px;
+      flex: none;
+      margin-right: var(--space-m);
+      margin-bottom: 0;
+    }
   }
 
   &-Badge {
@@ -17,6 +32,6 @@
   }
 
   &-BadgesWrapper {
-    margin-bottom: var(--space-2xs);
+    margin-bottom: calc(var(--space-2xl) - var(--space-s));
   }
 }

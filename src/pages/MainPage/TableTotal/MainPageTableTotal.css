@@ -1,0 +1,9 @@
+.Test--MainPageTableTotal {
+  display: grid;
+  grid-template-columns: repeat(6, calc(100% / 6));
+  border-top: 1px solid var(--color-bg-border);
+
+  &-Cell {
+    padding: var(--space-s) var(--space-3xl) var(--space-s) var(--space-m);
+  }
+}

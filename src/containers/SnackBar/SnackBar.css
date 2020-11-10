@@ -1,0 +1,6 @@
+.Test--SnackBar {
+  position: fixed;
+  bottom: 0;
+  right: var(--space-s);
+  width: 300px;
+}

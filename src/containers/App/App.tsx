@@ -4,6 +4,7 @@ import "./App.css";
 import { cn } from "../../utils/bem";
 import { useAtom } from "@reatom/react";
 import { themeAtom, mapTheme } from "../../modules/theme/theme";
+import { SnackBar } from "../SnackBar/SnackBar";
 
 import { cnTheme, Theme } from "@consta/uikit/Theme";
 
@@ -24,6 +25,7 @@ export const App: React.FC = ({ children }) => {
   return (
     <Theme className={cnApp()} preset={mapTheme[theme]}>
       {children}
+      <SnackBar />
     </Theme>
   );
 };

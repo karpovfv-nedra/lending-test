@@ -1,5 +1,8 @@
 import { declareAtom, declareAction, map, combine } from "@reatom/core";
+import { useAction } from "@reatom/react";
+
 import { products, additionalIngredients, categoryDrink } from "./mock";
+import { Item as SnackBarItem } from "@consta/uikit/SnackBar";
 import { cn } from "../../utils/bem";
 
 export const categoryDrinkIds = [
@@ -250,6 +253,32 @@ export const lieCoefficientAtom = declareAtom<number>(
     })
 );
 
+type TableData = {
+  id: string;
+  name: string;
+  cost: number;
+  weight: number;
+  proteins: number;
+  fats: number;
+  carbohydrates: number;
+  kilocalories: number;
+};
+
+function totalSum(
+  total: TableData,
+  increment: Omit<TableData, "id" | "name">
+): TableData {
+  return {
+    ...total,
+    cost: total.cost + increment.cost,
+    weight: total.weight + increment.weight,
+    proteins: total.proteins + increment.proteins,
+    fats: total.fats + increment.fats,
+    carbohydrates: total.carbohydrates + increment.carbohydrates,
+    kilocalories: total.kilocalories + increment.kilocalories,
+  };
+}
+
 export const tableDataAtom = map(
   combine({
     drink: drinkValueAtom,
@@ -259,16 +288,7 @@ export const tableDataAtom = map(
     doublePortion: doublePortionAtom,
   }),
   ({ drink, produrt, additives, lieCoefficient, doublePortion }) => {
-    const all: {
-      id: string;
-      name: string;
-      cost: number;
-      weight: number;
-      proteins: number;
-      fats: number;
-      carbohydrates: number;
-      kilocalories: number;
-    }[] = [];
+    const all: TableData[] = [];
 
     function addCoefficient(number: number = 0) {
       return Math.floor(number * lieCoefficient);
@@ -278,7 +298,7 @@ export const tableDataAtom = map(
       return doublePortion ? number * 2 : number;
     }
 
-    produrt &&
+    if (produrt) {
       all.push({
         ...produrt,
         cost: double(produrt.cost),
@@ -289,6 +309,7 @@ export const tableDataAtom = map(
         kilocalories: double(produrt.kilocalories),
         id: idTableDataAtom({ product: true }),
       });
+    }
 
     additives &&
       additives.forEach(({ badge, category, ...item }) => {
@@ -306,6 +327,10 @@ export const tableDataAtom = map(
           id: idTableDataAtom({ drink: true, ...item }),
         });
       });
+
+    if (all.length === 0) {
+      return [];
+    }
 
     return all.map((item) => ({
       ...item,
@@ -331,8 +356,6 @@ export const orderPriceAtom = map(
   ({ currency, tableData }) => {
     let sum: number = 0;
 
-    console.log(tableData);
-
     tableData.forEach((item) => {
       sum += item.cost;
     });
@@ -340,3 +363,43 @@ export const orderPriceAtom = map(
     return Math.floor(sum * currency.rate);
   }
 );
+
+export const tableTotalAtom = map(tableDataAtom, (tableData) => {
+  if (tableData.length === 0) {
+    return null;
+  }
+
+  let total: TableData = {
+    id: idTableDataAtom("TableDataTotal"),
+    name: "Всего",
+    cost: 0,
+    weight: 0,
+    proteins: 0,
+    fats: 0,
+    carbohydrates: 0,
+    kilocalories: 0,
+  };
+
+  tableData.forEach((item) => {
+    total = totalSum(total, item);
+  });
+
+  return total;
+});
+
+export const startСookingAction = declareAction();
+export const startСookingTimeOutAction = declareAction();
+export const sidebarAtom = declareAtom<SnackBarItem[]>([], (on) => [
+  on(startСookingAction, () => {
+    const item: SnackBarItem = {
+      key: "item",
+      message: "Начали готовить ваш заказ",
+      status: "success",
+      autoClose: true,
+    };
+    return [item];
+  }),
+  on(startСookingTimeOutAction, (state, payload) => {
+    return [];
+  }),
+]);

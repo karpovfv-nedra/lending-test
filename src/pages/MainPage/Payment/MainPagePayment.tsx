@@ -1,16 +1,19 @@
-import { Text } from "@consta/uikit/Text";
+import "./MainPagePayment.css";
+
 import React from "react";
 import { cn } from "../../../utils/bem";
-import "./MainPagePayment.css";
+import { Text } from "@consta/uikit/Text";
 import { ChoiceGroup } from "@consta/uikit/ChoiceGroup";
 import { Button } from "@consta/uikit/Button";
 import { IconForward } from "@consta/uikit/IconForward";
+import { SnackBar } from "@consta/uikit/SnackBar";
 import { useAtom, useAction } from "@reatom/react";
 import {
   setCurrencyAction,
   currencyValueAtom,
   orderPriceAtom,
   currency,
+  startСookingAction,
 } from "../../../modules/app/app";
 
 const cnMainPagePayment = cn("MainPagePayment");
@@ -19,6 +22,7 @@ export const MainPagePayment: React.FC = () => {
   const setCurrency = useAction(setCurrencyAction);
   const currencyValue = useAtom(currencyValueAtom);
   const orderPrice = useAtom(orderPriceAtom);
+  const startСooking = useAction(startСookingAction);
 
   return (
     <div className={cnMainPagePayment()}>
@@ -47,7 +51,12 @@ export const MainPagePayment: React.FC = () => {
         {orderPrice} {String.fromCodePoint(currencyValue.image)}
       </Text>
       <div className={cnMainPagePayment("ButtonWrapper")}>
-        <Button label="Начать готовить" iconRight={IconForward} size="l" />
+        <Button
+          label="Начать готовить"
+          iconRight={IconForward}
+          size="l"
+          onClick={startСooking}
+        />
       </div>
     </div>
   );

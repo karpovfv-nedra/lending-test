@@ -6,7 +6,6 @@ import { useAction, useAtom } from "@reatom/react";
 import { toogleThemeAction, themeAtom } from "../../modules/theme/theme";
 import { IconSun } from "@consta/uikit/IconSun";
 import { IconMoon } from "@consta/uikit/IconMoon";
-import { IconHamburger } from "@consta/uikit/IconHamburger";
 import { cn } from "../../utils/bem";
 import { Text } from "@consta/uikit/Text";
 

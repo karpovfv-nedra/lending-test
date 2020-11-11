@@ -1,9 +1,21 @@
-import { declareAtom, declareAction, map, combine } from "@reatom/core";
-import { useAction } from "@reatom/react";
+import {
+  declareAtom,
+  declareAction,
+  map,
+  combine,
+  PayloadActionCreator,
+  ActionCreator,
+} from "@reatom/core";
+
+import { createStore } from "@reatom/core";
 
 import { products, additionalIngredients, categoryDrink } from "./mock";
 import { Item as SnackBarItem } from "@consta/uikit/SnackBar";
 import { cn } from "../../utils/bem";
+
+export const store = createStore({});
+
+const dispatch = store.dispatch;
 
 export const categoryDrinkIds = [
   "drink-soft",
@@ -388,18 +400,26 @@ export const tableTotalAtom = map(tableDataAtom, (tableData) => {
 });
 
 export const startСookingAction = declareAction();
-export const startСookingTimeOutAction = declareAction();
+export const sidebarDeleteItemAction = declareAction<string | string[]>();
 export const sidebarAtom = declareAtom<SnackBarItem[]>([], (on) => [
   on(startСookingAction, () => {
     const item: SnackBarItem = {
-      key: "item",
+      key: "startСooking",
       message: "Начали готовить ваш заказ",
       status: "success",
       autoClose: true,
+      onClose: () => dispatch(sidebarDeleteItemAction("startСooking")),
     };
     return [item];
   }),
-  on(startСookingTimeOutAction, (state, payload) => {
-    return [];
+  on(sidebarDeleteItemAction, (state, payload) => {
+    return state.filter((item) => {
+      if (typeof payload === "string") {
+        return item.key !== payload;
+      }
+      if (payload.length !== 0) {
+        return !payload.find((pay) => pay === item.key);
+      }
+    });
   }),
 ]);

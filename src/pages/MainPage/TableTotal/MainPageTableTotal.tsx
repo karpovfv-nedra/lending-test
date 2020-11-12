@@ -16,7 +16,7 @@ export const MainPageTableTotal: React.FC = () => {
 
   return (
     <div className={cnMainPageTableTotal()}>
-      <Text size="s" className={cnMainPageTableTotal("Cell")}>
+      <Text size="s" weight="bold" className={cnMainPageTableTotal("Cell")}>
         {total.name}
       </Text>
       <Text size="s" className={cnMainPageTableTotal("Cell")} align="center">

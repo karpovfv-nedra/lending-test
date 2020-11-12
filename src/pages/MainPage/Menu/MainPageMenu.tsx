@@ -13,7 +13,7 @@ export const MainPageMenu: React.FC = () => {
         Не уверены за что платите?
       </Text>
       <Text className={cnMainPageMenu("SubTitle")} size="xl">
-        Скачайте и посмотрите наш честный прайс
+        Посмотрите наш честный прайс
       </Text>
       <Attach
         className={cnMainPageMenu("Attach")}

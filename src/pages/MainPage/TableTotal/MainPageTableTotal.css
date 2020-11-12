@@ -5,5 +5,11 @@
 
   &-Cell {
     padding: var(--space-s) var(--space-3xl) var(--space-s) var(--space-m);
+    &_type {
+      &_kilocalories {
+        padding: var(--space-s) calc(var(--space-3xl) + var(--space-xl))
+          var(--space-s) var(--space-m);
+      }
+    }
   }
 }

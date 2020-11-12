@@ -31,7 +31,11 @@ export const MainPageTableTotal: React.FC = () => {
       <Text size="s" className={cnMainPageTableTotal("Cell")} align="center">
         {total.carbohydrates}
       </Text>
-      <Text size="s" className={cnMainPageTableTotal("Cell")} align="center">
+      <Text
+        size="s"
+        className={cnMainPageTableTotal("Cell", { type: "kilocalories" })}
+        align="center"
+      >
         {total.kilocalories}
       </Text>
     </div>

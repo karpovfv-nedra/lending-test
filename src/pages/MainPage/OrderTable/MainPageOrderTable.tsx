@@ -81,6 +81,14 @@ export const MainPageOrderTable: React.FC = () => {
             rows={tableData}
             zebraStriped="odd"
             emptyRowsPlaceholder={<Text size="s">Ничего не выбранно</Text>}
+            filters={[
+              {
+                id: "kilocalories",
+                name: "Высокая колорийность (>= 300)",
+                field: "kilocalories",
+                filterer: (value) => value >= 300,
+              },
+            ]}
           />
           <MainPageTableTotal />
           {lieCoefficient === defaultlieCoefficient && tableData.length > 0 && (

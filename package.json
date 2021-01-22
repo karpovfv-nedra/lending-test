@@ -1,10 +1,10 @@
 {
-  "name": "test-landing",
+  "name": "pizza-landing",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
-    "@consta/uikit": "^1.10.4",
+    "@consta/uikit": "^1.11.2",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
     "@reatom/core": "^1.1.5",
     "@reatom/react": "^1.1.4",
@@ -101,10 +101,10 @@
     ]
   },
   "devDependencies": {
-    "@svgr/webpack": "^5.4.0",
     "@svgr/plugin-jsx": "^5.4.0",
     "@svgr/plugin-prettier": "^5.4.0",
     "@svgr/plugin-svgo": "^5.4.0",
+    "@svgr/webpack": "^5.4.0",
     "autoprefixer": "^9.8.6",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.2",

@@ -6,14 +6,14 @@ import { Text } from "@consta/uikit/Text";
 import { ChoiceGroup } from "@consta/uikit/ChoiceGroup";
 import { Button } from "@consta/uikit/Button";
 import { IconForward } from "@consta/uikit/IconForward";
-import { SnackBar } from "@consta/uikit/SnackBar";
+// import { SnackBar } from "@consta/uikit/SnackBar";
 import { useAtom, useAction } from "@reatom/react";
 import {
   setCurrencyAction,
   currencyValueAtom,
   orderPriceAtom,
   currency,
-  startСookingAction,
+  startCookingAction,
 } from "../../../modules/app/app";
 
 const cnMainPagePayment = cn("MainPagePayment");
@@ -22,7 +22,7 @@ export const MainPagePayment: React.FC = () => {
   const setCurrency = useAction(setCurrencyAction);
   const currencyValue = useAtom(currencyValueAtom);
   const orderPrice = useAtom(orderPriceAtom);
-  const startСooking = useAction(startСookingAction);
+  const startCooking = useAction(startCookingAction);
 
   return (
     <div className={cnMainPagePayment()}>
@@ -55,7 +55,7 @@ export const MainPagePayment: React.FC = () => {
           label="Начать готовить"
           iconRight={IconForward}
           size="l"
-          onClick={startСooking}
+          onClick={startCooking}
         />
       </div>
     </div>

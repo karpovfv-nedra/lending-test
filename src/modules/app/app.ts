@@ -3,8 +3,8 @@ import {
   declareAction,
   map,
   combine,
-  PayloadActionCreator,
-  ActionCreator,
+  // PayloadActionCreator,
+  // ActionCreator,
 } from "@reatom/core";
 
 import { createStore } from "@reatom/core";
@@ -399,10 +399,10 @@ export const tableTotalAtom = map(tableDataAtom, (tableData) => {
   return total;
 });
 
-export const startСookingAction = declareAction();
+export const startCookingAction = declareAction();
 export const sidebarDeleteItemAction = declareAction<string | string[]>();
 export const sidebarAtom = declareAtom<SnackBarItem[]>([], (on) => [
-  on(startСookingAction, () => {
+  on(startCookingAction, () => {
     const item: SnackBarItem = {
       key: "startСooking",
       message: "Начали готовить ваш заказ",
@@ -413,6 +413,7 @@ export const sidebarAtom = declareAtom<SnackBarItem[]>([], (on) => [
     return [item];
   }),
   on(sidebarDeleteItemAction, (state, payload) => {
+    // eslint-disable-next-line array-callback-return
     return state.filter((item) => {
       if (typeof payload === "string") {
         return item.key !== payload;

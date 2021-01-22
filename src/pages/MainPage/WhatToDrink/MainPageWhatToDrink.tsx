@@ -4,7 +4,7 @@ import "./MainPageWhatToDrink.css";
 import { cn } from "../../../utils/bem";
 import { Text } from "@consta/uikit/Text";
 import { Tabs } from "@consta/uikit/Tabs";
-import { Checkbox, CheckboxPropOnChange } from "@consta/uikit/Checkbox";
+import { Checkbox } from "@consta/uikit/Checkbox";
 import { useChoiceGroup } from "@consta/uikit/useChoiceGroup";
 
 import { categoryDrink } from "../../../modules/app/mock";

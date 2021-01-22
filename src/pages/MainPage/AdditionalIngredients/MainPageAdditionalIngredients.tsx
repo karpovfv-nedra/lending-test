@@ -8,9 +8,9 @@ import {
   additionalIngredientListAtom,
   additionalIngredientsValueAtom,
   setAdditionalIngredientsAction,
-  addUserIngredientsAction,
+  // addUserIngredientsAction,
   AdditionalIngredient,
-  userIngredientsAtom,
+  // userIngredientsAtom,
 } from "../../../modules/app/app";
 import { MultiCombobox } from "@consta/uikit/MultiCombobox";
 
@@ -18,31 +18,31 @@ const cnMainPageAdditionalIngredients = cn("MainPageAdditionalIngredients");
 
 export const MainPageAdditionalIngredients: React.FC = () => {
   const additionalIngredients = useAtom(additionalIngredientListAtom);
-  const userIngredients = useAtom(userIngredientsAtom);
+  // const userIngredients = useAtom(userIngredientsAtom);
   const additionalIngredientsValue = useAtom(additionalIngredientsValueAtom);
   const setAdditionalIngredients = useAction(setAdditionalIngredientsAction);
-  const addUserIngredients = useAction(addUserIngredientsAction);
+  // const addUserIngredients = useAction(addUserIngredientsAction);
 
   if (additionalIngredients.length === 0) {
     return null;
   }
 
-  const hadleCreate = (label: string) => {
-    addUserIngredients(label);
-    setAdditionalIngredients([
-      {
-        label,
-        category: ["user"],
-        cost: 150,
-        weight: 300,
-        proteins: 0,
-        fats: 0,
-        carbohydrates: 10,
-        kilocalories: 100,
-      },
-      ...(additionalIngredientsValue ? additionalIngredientsValue : []),
-    ]);
-  };
+  // const hadleCreate = (label: string) => {
+  //   addUserIngredients(label);
+  //   setAdditionalIngredients([
+  //     {
+  //       label,
+  //       category: ["user"],
+  //       cost: 150,
+  //       weight: 300,
+  //       proteins: 0,
+  //       fats: 0,
+  //       carbohydrates: 10,
+  //       kilocalories: 100,
+  //     },
+  //     ...(additionalIngredientsValue ? additionalIngredientsValue : []),
+  //   ]);
+  // };
 
   const handleChandge = (items: AdditionalIngredient[] | null) => {
     setAdditionalIngredients(items);
